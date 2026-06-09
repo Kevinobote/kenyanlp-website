@@ -1,0 +1,77 @@
+---
+import Base from '../layouts/Base.astro';
+
+const leadership = [
+  { name: 'Dr. Everlyn Asiko', role: 'Project Co-Lead & Evaluation Pipeline Lead', affil: 'Lelapa AI', title: 'Research Scientist & PhD Candidate, UCT', photo: '/team/everlyn-asiko.jpg', linkedin: 'https://www.linkedin.com/in/everlyn-asiko/' },
+  { name: 'Dr. Clemencia Siro', role: 'Project Co-Lead & Data Sourcing Lead', affil: 'Centrum Wiskunde & Informatica', title: 'Postdoctoral Researcher', photo: '/team/clemencia-siro.jpg', linkedin: 'https://www.linkedin.com/in/clemencia-siro/' },
+];
+
+const leads = [
+  { name: 'Cynthia Amol', role: 'Dataset Cleaning Lead', affil: 'Maseno University', title: 'PhD Student & NLP Researcher', photo: '/team/cynthia-amol.jpg', linkedin: 'http://www.linkedin.com/in/cynthia-amol' },
+  { name: 'Naome Etori', role: 'Model Research & Human Eval Lead', affil: '', title: '', initials: 'NE', bg: 'bg-coral-50 text-coral-800' },
+  { name: 'Kevin Obote', role: 'Dataset Evaluation Lead', affil: 'Guild Code', title: 'Lead AI Systems Engineer', photo: '/team/kevin-obote.jpg', linkedin: 'https://www.linkedin.com/in/kevinobote' },
+  { name: "Millicent Ochieng'", role: 'Writing & Publications Lead', affil: 'Microsoft Research Africa', title: 'Research Scientist', photo: '/team/millicent-ochieng.jpg', linkedin: 'https://www.linkedin.com/in/millicent-ochieng-b8061a14b/' },
+  { name: 'Amos Mwendwa', role: 'Website & Outreach Lead', affil: 'Meraki Digital Solutions', title: 'Founder', photo: '/team/amos-mwendwa.jpg', linkedin: 'https://www.linkedin.com/in/amos-mwendwa-276a92151/' },
+];
+
+const institutions = [
+  { title: 'Universities', list: 'University of Nairobi · Strathmore University · Dedan Kimathi · Maseno University' },
+  { title: 'Industry', list: 'Microsoft Research · Google (compute credits) · Community industry partners' },
+  { title: 'Research networks', list: 'Masakhane · KenCorpus · Mozilla Common Voice · Zindi · Lacuna Fund' },
+];
+---
+<Base title="Team - KenyaNLP" description="Meet the researchers, engineers, and language advocates powering KenyaNLP.">
+  <section class="py-20 px-8 max-w-[1060px] mx-auto">
+    <p class="text-[11px] font-semibold tracking-widest uppercase text-green-600 mb-3">The people</p>
+    <h1 class="font-[family-name:var(--font-family-heading)] text-[clamp(1.8rem,4vw,2.6rem)] font-normal leading-tight tracking-tight mb-4">Our team</h1>
+    <p class="text-[1.05rem] text-gray-600 max-w-[560px] font-light leading-relaxed mb-8">KenyaNLP is powered by a passionate, multi-institutional community of researchers, engineers, and language advocates.</p>
+
+    <!-- Leadership -->
+    <p class="text-[11px] font-semibold tracking-widest uppercase text-gray-400 mb-4">Project leadership</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+      {leadership.map(m => (
+        <div class="bg-white border border-black/10 rounded-xl p-6 text-center">
+          <img src={m.photo} alt={m.name} class="w-20 h-20 rounded-full object-cover mx-auto mb-4" loading="lazy" />
+          <h4 class="text-sm font-semibold mb-1">{m.name}</h4>
+          <p class="text-xs text-gray-600 mb-0.5">{m.role}</p>
+          <p class="text-[11px] text-gray-400 mb-0.5">{m.title} · {m.affil}</p>
+          {m.linkedin && <a href={m.linkedin} target="_blank" rel="noopener" class="text-[11px] text-green-600 no-underline hover:underline">LinkedIn ↗</a>}
+        </div>
+      ))}
+    </div>
+
+    <!-- Team Leads -->
+    <p class="text-[11px] font-semibold tracking-widest uppercase text-gray-400 mb-4">Team leads</p>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
+      {leads.map(m => (
+        <div class="bg-white border border-black/10 rounded-xl p-6 text-center">
+          {m.photo ? (
+            <img src={m.photo} alt={m.name} class="w-14 h-14 rounded-full object-cover mx-auto mb-4" loading="lazy" />
+          ) : (
+            <div class={`w-14 h-14 rounded-full flex items-center justify-center font-semibold text-[15px] mx-auto mb-4 ${m.bg}`}>{m.initials}</div>
+          )}
+          <h4 class="text-sm font-semibold mb-1">{m.name}</h4>
+          <p class="text-xs text-gray-600 mb-0.5">{m.role}</p>
+          <p class="text-[11px] text-gray-400 mb-0.5">{m.affil}</p>
+          {m.linkedin && <a href={m.linkedin} target="_blank" rel="noopener" class="text-[11px] text-green-600 no-underline hover:underline">LinkedIn ↗</a>}
+        </div>
+      ))}
+    </div>
+
+    <!-- Institutions -->
+    <p class="text-[11px] font-semibold tracking-widest uppercase text-gray-400 mb-4">Affiliated institutions</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+      {institutions.map(inst => (
+        <div class="bg-white border border-black/10 rounded-xl p-5">
+          <h4 class="text-sm font-semibold mb-1.5">{inst.title}</h4>
+          <p class="text-[13px] text-gray-600">{inst.list}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center">
+      <p class="text-[15px] text-gray-600 mb-4">23+ contributors and growing. Every skill is welcome.</p>
+      <a href="/community" class="bg-green-600 text-white px-7 py-3.5 rounded-full text-[15px] font-medium hover:bg-green-800 transition-colors no-underline inline-block">See how to contribute</a>
+    </div>
+  </section>
+</Base>

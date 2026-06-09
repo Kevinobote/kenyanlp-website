@@ -1,0 +1,232 @@
+========================================================================
+KenyaNLP Website — Content & Layout Improvement Plan
+========================================================================
+
+Prioritized by UI/UX impact. Applies best practices in design, 
+accessibility, SEO, and conversion.
+
+========================================================================
+1. HOME PAGE (index.astro)
+========================================================================
+
+HERO SECTION
+------------------------------------------------------------------------
+| Issue                                          | Improvement                                                              | Principle                    |
+|------------------------------------------------|--------------------------------------------------------------------------|------------------------------|
+| Badge says "A Masakhane-affiliated initiative"  | Change to: "Open research community · Masakhane-affiliated"              | Clarity over jargon          |
+|   — unclear to first-time visitors             |                                                                          |                              |
+| H1 is good but lacks a hook for non-technical  | Add sub-hook: "From Swahili to Ogiek — building AI that speaks           | Emotional connection         |
+|   visitors                                     |   your language"                                                         |                              |
+| CTAs are generic                               | Primary: "Join as a contributor"                                         | Action-oriented microcopy    |
+|                                                | Secondary: "See our research →"                                          |                              |
+| Stats "15+ Datasets" has no context            | Expand label: "15+ open datasets on HuggingFace"                         | Reduce ambiguity             |
+
+"WHY IT MATTERS" SECTION
+------------------------------------------------------------------------
+| Issue                                          | Improvement                                                              | Principle                    |
+|------------------------------------------------|--------------------------------------------------------------------------|------------------------------|
+| "The challenge we're solving" is inward-facing | Change to: "Why this work matters" — visitor-centric                     | User-first language          |
+| 3 cards describe what YOU do, not visitor value | Reframe: "What you'll find here"                                         | Value proposition clarity    |
+|                                                |   (1) Benchmarks & leaderboards                                          |                              |
+|                                                |   (2) Open datasets & tools                                              |                              |
+|                                                |   (3) A community to grow with                                           |                              |
+| "Latest" highlight box is buried               | Move below hero as announcement bar, or add a date                       | Recency signals boost trust  |
+
+MISSING FROM HOME PAGE
+------------------------------------------------------------------------
+| What to add                                    | Why                                          | Where                        |
+|------------------------------------------------|----------------------------------------------|------------------------------|
+| Social proof logos — Masakhane, UoN,           | Instant credibility                          | Below hero stats             |
+|   Strathmore, Microsoft                        |                                              |                              |
+| "How it works" 3-step strip                    | Reduces friction for newcomers               | Between hero and             |
+|   (1) Join (2) Pick a project (3) Contribute   |                                              |   "Why it matters"           |
+| Testimonial or quote from a contributor        | Human proof builds trust                     | After the cards              |
+
+
+========================================================================
+2. ABOUT PAGE (about.astro)
+========================================================================
+
+| Issue                                          | Improvement                                                              | Principle                    |
+|------------------------------------------------|--------------------------------------------------------------------------|------------------------------|
+| Opens with 3 dense paragraphs — wall of text   | Break into:                                                              | Scanability (F-pattern)      |
+|                                                |   (1) One-liner mission statement bold/large                             |                              |
+|                                                |   (2) Short "our story" paragraph                                        |                              |
+|                                                |   (3) Key numbers inline                                                 |                              |
+| Pillars numbered 01–05 lack visual hierarchy   | Emphasize pillar 01 (Research) as flagship; add icon per pillar          | Visual anchoring             |
+| No timeline / milestones visible               | Add "Journey so far" mini-timeline:                                      | Progress = trust             |
+|                                                |   Founded → First meeting → 23 members → KenBench launch                |                              |
+| CTA "Partner with us" is vague                 | Segment:                                                                 | Audience segmentation        |
+|                                                |   "I'm a researcher → Join"                                              |                              |
+|                                                |   "I represent an institution → Partner"                                  |                              |
+|                                                |   "I want to fund → Sponsor"                                             |                              |
+| Missing: Vision vs Mission distinction         | Add bold vision: "Every Kenyan language has world-class AI               | Aspiration drives engagement |
+|                                                |   tools by 2030"                                                         |                              |
+
+
+========================================================================
+3. PROJECTS PAGE (projects.astro)
+========================================================================
+
+| Issue                                          | Improvement                                                              | Principle                    |
+|------------------------------------------------|--------------------------------------------------------------------------|------------------------------|
+| All 3 projects look the same weight            | Make KenBench a FEATURED card — larger, different layout                 | Visual hierarchy             |
+| Progress bars have no labels                   | Add "45% complete" text next to the bar                                  | Accessibility + clarity      |
+| "Propose a project" card is easily missed      | Move above grid as banner/callout, or different color                    | Discoverability              |
+| No expected outcomes listed                    | Add per-project: "Expected: 1 paper, 1 leaderboard, 10 datasets"        | Concrete deliverables        |
+| Expanded detail is text-heavy                  | Add visual elements: diagram, language map, contributor avatars          | Break monotony               |
+
+MISSING FROM PROJECTS
+------------------------------------------------------------------------
+| What to add                                    | Why                                                                      |
+|------------------------------------------------|--------------------------------------------------------------------------|
+| GitHub/HuggingFace links per project           | Developers need direct access to repos                                   |
+| "Last updated" timestamp                       | Shows project is alive                                                   |
+| Contributor count badges                       | Social proof within each project                                         |
+
+
+========================================================================
+4. TEAM PAGE (team.astro)
+========================================================================
+
+| Issue                                          | Improvement                                                              | Principle                    |
+|------------------------------------------------|--------------------------------------------------------------------------|------------------------------|
+| Initials-only avatars feel impersonal          | Use real photos where available; fall back to initials                    | Human faces build connection |
+| Role + affiliation both gray — hard to         | Make role slightly darker/bolder than affiliation                         | Information hierarchy        |
+|   distinguish                                  |                                                                          |                              |
+| Leadership and Leads are flat grids            | Make leadership cards larger (2-up) vs leads (4-up)                      | Visual weight = importance   |
+| No link to individual profiles                 | Add optional links to Google Scholar / LinkedIn / Twitter                 | Credibility + networking     |
+| Institutions section is just text              | Add actual logos (even small grayscale)                                   | Visual recognition           |
+
+MISSING FROM TEAM
+------------------------------------------------------------------------
+| What to add                                    | Why                                                                      |
+|------------------------------------------------|--------------------------------------------------------------------------|
+| "Join the team" section with open roles        | Converts visitors into contributors                                      |
+| Advisors / Mentors section                     | Shows depth of support network                                           |
+| Community contributors count + "see all"       | Acknowledges everyone                                                    |
+
+
+========================================================================
+5. COMMUNITY PAGE (community.astro)
+========================================================================
+
+| Issue                                          | Improvement                                                              | Principle                    |
+|------------------------------------------------|--------------------------------------------------------------------------|------------------------------|
+| Banner CTA goes to contact form — friction     | Add direct WhatsApp/Slack join link as primary action                    | Reduce steps to conversion   |
+| "Ways to contribute" are abstract              | Add concrete examples: "e.g., translate 50 sentences from                | Specificity reduces          |
+|                                                |   English to Luo"                                                        |   hesitation                 |
+| Activities section has no dates/schedule       | Add: "Reading group: Every 2nd Thursday"                                 | Urgency + commitment         |
+|                                                | "Next workshop: April 2026"                                              |                              |
+| Incentives is a single paragraph               | Break into visual list:                                                  | Scanability                  |
+|                                                |   ✓ Co-authorship                                                        |                              |
+|                                                |   ✓ Compute access                                                       |                              |
+|                                                |   ✓ Conference presentations                                             |                              |
+|                                                |   ✓ Mentorship                                                           |                              |
+| No community size/activity indicators          | Add: "X active contributors this month"                                  | Social proof of activity     |
+
+MISSING FROM COMMUNITY
+------------------------------------------------------------------------
+| What to add                                    | Why                                                                      |
+|------------------------------------------------|--------------------------------------------------------------------------|
+| FAQ — "Do I need ML experience?",             | Removes barriers                                                         |
+|   "How much time?", "Can I contribute remote?" |                                                                          |
+| Contributor spotlight/story                    | Relatability                                                             |
+| Onboarding steps:                              | Clear path reduces drop-off                                              |
+|   (1) Fill form (2) Join WhatsApp              |                                                                          |
+|   (3) Attend intro call (4) Pick a task        |                                                                          |
+
+
+========================================================================
+6. CONTACT PAGE (contact.astro)
+========================================================================
+
+| Issue                                          | Improvement                                                              | Principle                    |
+|------------------------------------------------|--------------------------------------------------------------------------|------------------------------|
+| "Work with KenyaNLP" assumes partnership       | Change to: "Get involved" with sub-options:                              | Inclusive framing            |
+|                                                |   Join / Partner / Fund / Ask                                            |                              |
+| Form has no expected response time             | Add: "We typically respond within 48 hours"                              | Set expectations             |
+| "Connect with us" pills are not clickable      | Make them actual links to WhatsApp, HuggingFace, etc.                    | Every element = actionable   |
+| No privacy note on the form                    | Add: "We'll only use your email to respond. No spam."                    | GDPR + trust                 |
+| Email addresses are personal Gmail             | Use: hello@kenyanlp.org or contact@kenyanlp.org (free with cPanel)       | Professionalism              |
+
+MISSING FROM CONTACT
+------------------------------------------------------------------------
+| What to add                                    | Why                                                                      |
+|------------------------------------------------|--------------------------------------------------------------------------|
+| Office hours / meeting booking (Cal.com free)  | Lower friction than email                                                |
+| Physical presence: "Based in Nairobi 🇰🇪"     | Locality builds trust                                                    |
+| Response time expectation                      | Manages visitor patience                                                 |
+
+
+========================================================================
+7. GLOBAL LAYOUT & NAVIGATION
+========================================================================
+
+| Issue                                          | Improvement                                                              | Principle                    |
+|------------------------------------------------|--------------------------------------------------------------------------|------------------------------|
+| Nav has no active state indicator              | Highlight current page (underline or bold)                               | Orientation / wayfinding     |
+| Footer is minimal                              | Add: Newsletter signup, social links, "Supported by Masakhane" badge     | Footer = high-value estate   |
+| No breadcrumbs on inner pages                  | Add subtle: "Home > Projects"                                            | SEO + navigation             |
+| No 404 page                                    | Create custom 404 with links to key pages                                | Retain lost visitors         |
+| Mobile menu has no animation                   | Add slide-down or fade transition                                        | Polish                       |
+| No page transition feel                        | Add subtle fade-in on load via CSS                                       | Perceived performance        |
+
+
+========================================================================
+8. MISSING PAGES TO ADD
+========================================================================
+
+| Page            | Content                                            | Priority |
+|-----------------|----------------------------------------------------|----------|
+| Blog / Updates  | Project updates, community news, event recaps      | High     |
+| Resources       | Links to datasets, papers, tools, reading lists    | High     |
+| FAQ             | Common questions for potential contributors        | Medium   |
+| Events          | Upcoming workshops, reading groups, conferences    | Medium   |
+
+
+========================================================================
+9. CONTENT TONE & WRITING IMPROVEMENTS
+========================================================================
+
+| Current                                         | Better                                                                   | Why                          |
+|-------------------------------------------------|--------------------------------------------------------------------------|------------------------------|
+| "A collaborative research community             | "We're building AI that understands Kenyan languages —                    | Conversational, concrete     |
+|   advancing NLP..."                             |   all 40+ of them."                                                      |                              |
+| "ensuring no language is left behind            | "So that Ogiek, Luo, Kikuyu, and every language in between               | Specific > abstract          |
+|   in the AI era"                                |   gets a seat at the AI table"                                           |                              |
+| "Capacity building" (card title)                | "Grow with us" or "Learn & build"                                        | Less corporate, more inviting|
+| "Express interest" (form title)                 | "Join KenyaNLP" or "Let's work together"                                 | Warmer, action-oriented      |
+
+
+========================================================================
+10. PRIORITY ORDER FOR IMPLEMENTATION
+========================================================================
+
+1. Home page restructure
+   — Hero hook, social proof logos, "how it works" strip, testimonial
+
+2. Navigation active states + 404 page
+   — Basic polish
+
+3. Community page onboarding flow
+   — FAQ, steps, direct join links
+
+4. Projects page hierarchy
+   — Featured card for KenBench, GitHub links, timestamps
+
+5. Contact page
+   — Clickable social links, privacy note, professional email
+
+6. Team page
+   — Photos, larger leadership cards, open roles
+
+7. About page
+   — Vision statement, timeline, segmented CTAs
+
+8. New pages
+   — Blog/Updates, Resources
+
+========================================================================
+END OF PLAN
+========================================================================

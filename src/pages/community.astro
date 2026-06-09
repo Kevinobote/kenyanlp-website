@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+import Card from '../components/Card.astro';
+---
+<Base title="Community - KenyaNLP" description="Join the KenyaNLP community and contribute to advancing Kenyan language AI.">
+  <section class="py-20 px-8 max-w-[1060px] mx-auto">
+    <p class="text-[11px] font-semibold tracking-widest uppercase text-green-600 mb-3">Community</p>
+
+    <!-- Banner -->
+    <div class="bg-green-900 text-white rounded-xl p-10 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-center mb-8">
+      <div>
+        <h1 class="font-[family-name:var(--font-family-heading)] text-[1.9rem] font-normal mb-3 leading-tight">Build the future of African language AI - with us</h1>
+        <p class="text-sm text-white/70 font-light">No matter your background - researcher, engineer, linguist, student - there is a meaningful role for you in KenyaNLP. We're especially looking for Kenyan language speakers and NLP researchers.</p>
+      </div>
+      <a href="/contact" class="bg-white text-green-900 px-6 py-3 rounded-full text-sm font-medium hover:bg-gray-100 transition-colors no-underline inline-block">Join now →</a>
+    </div>
+
+    <!-- Ways to contribute -->
+    <p class="text-[11px] font-semibold tracking-widest uppercase text-green-600 mb-4 mt-8">Ways to contribute</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+      <Card icon="🗂" iconBg="bg-green-50" title="Data & sourcing" description="Help identify, collect, and validate Kenyan language datasets. Knowledge of a Kenyan language is a superpower here." />
+      <Card icon="🧪" iconBg="bg-amber-50" title="Model evaluation" description="Run experiments, evaluate models with lm-harness, and document results across tasks and languages." />
+      <Card icon="✍️" iconBg="bg-teal-50" title="Research writing" description="Contribute to papers, help craft the KenBench story, and support workshop and conference submissions." />
+      <Card icon="📣" iconBg="bg-coral-50" title="Outreach & communications" description="Help grow the community, coordinate with partners, and represent KenyaNLP at events and conferences." />
+    </div>
+
+    <!-- Activities -->
+    <p class="text-[11px] font-semibold tracking-widest uppercase text-green-600 mb-4">Community activities</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+      <Card icon="📖" title="Reading group" description="Regular sessions on the latest African NLP papers, methods, and community research." />
+      <Card icon="🏗" title="Workshops & meetups" description="In-person and hybrid meetups in Nairobi, Maseno, and online. Next: Synthesis Workshop, April 2026." />
+      <Card icon="🎓" title="Mentorship" description="Junior–senior researcher pairing to guide contributors through publication and project work." />
+    </div>
+
+    <!-- Incentives -->
+    <p class="text-[11px] font-semibold tracking-widest uppercase text-green-600 mb-4">Incentives</p>
+    <div class="bg-white border border-black/10 rounded-xl p-6 max-w-[600px]">
+      <p class="text-sm text-gray-600 leading-relaxed">
+        Contributors to KenBench will be credited as co-authors on publications. We offer mentorship from experienced NLP researchers, access to compute resources, and the chance to present at major African AI venues including Deep Learning Indaba, AfricaNLP, and EACL.
+      </p>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,190 @@
+---
+import Base from '../layouts/Base.astro';
+
+const projects = [
+  {
+    status: 'active',
+    statusLabel: 'Active - Phase 1',
+    title: 'KenBench',
+    desc: 'The first comprehensive evaluation suite for Kenyan language NLP - benchmarking models and datasets across 10 languages with a public leaderboard.',
+    progress: 45,
+    meta: ['Q1/Q2 2026', '23 contributors', '10 languages'],
+    overview: 'KenBench provides plug-and-play evaluation via lm-evaluation-harness, a public leaderboard, and baselines for open- and closed-source models across 10 Kenyan languages. Target publication: AfricaNLP 2026 at EACL. Synthesis workshop planned for April 2026.',
+    tags: ['Benchmarking', 'Evaluation', 'Leaderboard', 'lm-harness'],
+    languages: ['Swahili', 'Kikuyu', 'Luo', 'Kamba', 'Giriama', 'Gusii', 'Luhya', 'Somali', 'Suba', 'Kalenjin'],
+    phases: [
+      { title: 'Phase 1: Foundation', tag: 'In progress', tagClass: 'bg-amber-50 text-amber-800', active: true, desc: 'Open-source model evaluation, datasets on HuggingFace, lm-harness integration, leaderboard launch.' },
+      { title: 'Phase 2: Expansion', tag: 'Q3 2026', tagClass: 'bg-gray-50 text-gray-600', active: false, desc: 'Closed-source model evals (GPT, Claude, Gemini), 8+ languages, 15+ datasets, first major paper.' },
+      { title: 'Phase 3: Sustainability', tag: 'Q4 2026', tagClass: 'bg-gray-50 text-gray-600', active: false, desc: 'Masakhane chapter status, governance transition, shared task launch.' },
+    ],
+    contribute: 'We need help with dataset integration, model evaluation, human annotation, and paper writing. All skill levels welcome - Kenyan language speakers especially valued.',
+  },
+  {
+    status: 'planning',
+    statusLabel: 'Planning',
+    title: 'Language revival project',
+    desc: 'Collect speech and text data for forgotten Kenyan languages - Ogiek, Kipsigis, Nandi, Kisii - then evaluate and train small models.',
+    progress: 10,
+    meta: ['Q3 2026', '4+ languages'],
+    overview: 'One language revival project per cycle: collect speech and text data, run evaluation, and train a small model for an endangered or under-resourced Kenyan language. Starting candidates include Ogiek, Kipsigis, Nandi, and Kisii.',
+    tags: ['Data collection', 'ASR', 'Endangered languages', 'Speech'],
+    contribute: 'Native speakers, field linguists, data engineers, and ASR researchers are all needed. This project begins after KenBench Phase 1 is complete. Express interest now to help shape it.',
+  },
+  {
+    status: 'upcoming',
+    statusLabel: 'Upcoming',
+    title: 'Small LM / ASR for Kenyan languages',
+    desc: 'Training and evaluating small language models and ASR systems purpose-built for Kenyan languages and low-resource constraints.',
+    progress: 5,
+    meta: ['Q3–Q4 2026', 'Research scoping'],
+    overview: 'Following KenBench, KenyaNLP will run a focused project training small language and automatic speech recognition models optimised for Kenyan language characteristics and data constraints.',
+    tags: ['ASR', 'Language models', 'Low-resource', 'Fine-tuning'],
+    contribute: 'ML engineers, speech researchers, and data annotators will be needed. Register your interest now and we\'ll reach out when the project launches.',
+  },
+];
+
+const statusStyles: Record<string, string> = {
+  active: 'bg-green-50 text-green-800 border-green-100',
+  planning: 'bg-amber-50 text-amber-800 border-amber-100',
+  upcoming: 'bg-gray-50 text-gray-600 border-gray-100',
+};
+---
+<Base title="Projects - KenyaNLP" description="Explore KenyaNLP's active research projects in Kenyan language NLP.">
+  <section class="py-20 px-8 max-w-[1060px] mx-auto">
+    <p class="text-[11px] font-semibold tracking-widest uppercase text-green-600 mb-3">Research projects</p>
+    <h1 class="font-[family-name:var(--font-family-heading)] text-[clamp(1.8rem,4vw,2.6rem)] font-normal leading-tight tracking-tight mb-4">What we're working on</h1>
+    <p class="text-[1.05rem] text-gray-600 max-w-[560px] font-light leading-relaxed mb-8">KenyaNLP runs community research projects focused on advancing language technology for Kenyan languages. Every project is open for contributors.</p>
+
+    <!-- Filters -->
+    <div class="flex gap-2 mb-8 flex-wrap">
+      <button class="proj-filter active px-4 py-1.5 rounded-full text-[13px] cursor-pointer border border-black/18 font-[family-name:var(--font-family-body)] transition-all" data-filter="all">All projects</button>
+      <button class="proj-filter px-4 py-1.5 rounded-full text-[13px] cursor-pointer border border-black/18 font-[family-name:var(--font-family-body)] transition-all" data-filter="active">Active</button>
+      <button class="proj-filter px-4 py-1.5 rounded-full text-[13px] cursor-pointer border border-black/18 font-[family-name:var(--font-family-body)] transition-all" data-filter="planning">Planning</button>
+      <button class="proj-filter px-4 py-1.5 rounded-full text-[13px] cursor-pointer border border-black/18 font-[family-name:var(--font-family-body)] transition-all" data-filter="upcoming">Upcoming</button>
+    </div>
+
+    <!-- Project Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="projects-grid">
+      {projects.map(proj => (
+        <article class="proj-card bg-white border border-black/10 rounded-xl p-6 cursor-pointer transition-colors hover:border-black/18" data-status={proj.status}>
+          <span class={`inline-block text-[11px] font-medium px-2.5 py-0.5 rounded-full mb-3 border ${statusStyles[proj.status]}`}>{proj.statusLabel}</span>
+          <h3 class="text-base font-semibold mb-1.5 text-gray-900">{proj.title}</h3>
+          <p class="text-[13px] text-gray-600 leading-relaxed mb-4">{proj.desc}</p>
+          <div class="h-0.5 bg-gray-50 rounded-sm mb-3 overflow-hidden">
+            <div class="h-full bg-green-600 rounded-sm" style={`width:${proj.progress}%`}></div>
+          </div>
+          <div class="flex gap-4 text-xs text-gray-400 flex-wrap">
+            {proj.meta.map(m => <span>{m}</span>)}
+          </div>
+
+          <!-- Expandable detail -->
+          <div class="proj-detail hidden mt-6 pt-6 border-t border-black/10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <p class="text-[11px] font-semibold tracking-widest uppercase text-gray-400 mb-2">Overview</p>
+                <p class="text-[13px] text-gray-600 leading-relaxed">{proj.overview}</p>
+                <div class="flex flex-wrap gap-1.5 mt-3">
+                  {proj.tags.map(t => <span class="bg-gray-50 border border-black/10 rounded-full px-2.5 py-0.5 text-xs text-gray-600">{t}</span>)}
+                </div>
+                {proj.languages && (
+                  <>
+                    <p class="text-[11px] font-semibold tracking-widest uppercase text-gray-400 mb-2 mt-5">Target languages</p>
+                    <div class="flex flex-wrap gap-2">
+                      {proj.languages.map(l => <span class="bg-green-50 border border-green-100 text-green-800 rounded-full px-3.5 py-1.5 text-[13px]">{l}</span>)}
+                    </div>
+                  </>
+                )}
+              </div>
+              <div>
+                {proj.phases && (
+                  <>
+                    <p class="text-[11px] font-semibold tracking-widest uppercase text-gray-400 mb-2">Phases</p>
+                    <div class="flex flex-col gap-4 pl-5 relative before:content-[''] before:absolute before:left-[5px] before:top-2 before:bottom-2 before:w-px before:bg-black/10">
+                      {proj.phases.map(phase => (
+                        <div class="relative">
+                          <span class={`absolute -left-5 top-1 w-3 h-3 rounded-full ${phase.active ? 'bg-green-600' : 'bg-white border border-black/18'}`}></span>
+                          <div class="text-[13px] font-semibold mb-1 flex items-center gap-2 flex-wrap">
+                            {phase.title}
+                            <span class={`text-[10px] px-2 py-0.5 rounded-full ${phase.tagClass}`}>{phase.tag}</span>
+                          </div>
+                          <p class="text-xs text-gray-600 leading-relaxed">{phase.desc}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </>
+                )}
+                <p class="text-[11px] font-semibold tracking-widest uppercase text-gray-400 mb-2 mt-5">How to contribute</p>
+                <p class="text-[13px] text-gray-600 leading-relaxed">{proj.contribute}</p>
+                <a href="/contact" class="inline-block mt-4 bg-green-600 text-white px-5 py-2.5 rounded-full text-[13px] font-medium hover:bg-green-800 transition-colors no-underline">Get involved →</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      ))}
+
+      <!-- Propose card -->
+      <div class="border border-dashed border-black/18 rounded-xl p-6 cursor-pointer flex flex-col items-center justify-center text-center gap-2 min-h-[160px] hover:bg-gray-50 transition-colors">
+        <a href="/contact" class="no-underline text-gray-900 flex flex-col items-center gap-2">
+          <div class="w-9 h-9 rounded-full bg-white border border-black/18 flex items-center justify-center text-xl text-gray-400">+</div>
+          <h4 class="text-sm font-semibold">Propose a project</h4>
+          <p class="text-xs text-gray-600 max-w-[180px]">Have an idea for a Kenyan language research initiative? Submit a proposal.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .proj-filter.active {
+    background: var(--color-green-600);
+    color: white;
+    border-color: var(--color-green-600);
+  }
+  .proj-filter:not(.active) {
+    background: transparent;
+    color: var(--color-gray-600, #5F5E5A);
+  }
+  .proj-filter:not(.active):hover {
+    background: var(--color-gray-50, #F1EFE8);
+  }
+  .proj-card.open {
+    border-color: var(--color-green-600);
+    grid-column: 1 / -1;
+  }
+</style>
+
+<script>
+  // Filters
+  document.querySelectorAll('.proj-filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.proj-filter').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.getAttribute('data-filter');
+      document.querySelectorAll('.proj-card').forEach(card => {
+        const el = card as HTMLElement;
+        el.style.display = (filter === 'all' || el.dataset.status === filter) ? '' : 'none';
+        if (el.style.display === 'none') {
+          el.classList.remove('open');
+          el.querySelector('.proj-detail')?.classList.add('hidden');
+        }
+      });
+    });
+  });
+
+  // Toggle expand
+  document.querySelectorAll('.proj-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      if ((e.target as HTMLElement).closest('a')) return;
+      const isOpen = card.classList.contains('open');
+      document.querySelectorAll('.proj-card.open').forEach(c => {
+        c.classList.remove('open');
+        c.querySelector('.proj-detail')?.classList.add('hidden');
+      });
+      if (!isOpen) {
+        card.classList.add('open');
+        card.querySelector('.proj-detail')?.classList.remove('hidden');
+        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+  });
+</script>

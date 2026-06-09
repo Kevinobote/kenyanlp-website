@@ -1,0 +1,103 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Get Involved - KenyaNLP" description="Contact KenyaNLP to join the community, explore partnerships, or contribute to our research projects.">
+  <section class="py-20 px-8 max-w-[1060px] mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <div>
+        <p class="text-[11px] font-semibold tracking-widest uppercase text-green-600 mb-3">Get in touch</p>
+        <h1 class="font-[family-name:var(--font-family-heading)] text-[2rem] font-normal mb-4">Work with KenyaNLP</h1>
+        <p class="text-gray-600 font-light leading-relaxed mb-6">Whether you're a researcher, institution, funder, or community member - we'd love to hear from you. Reach out to join the team, explore a partnership, or learn more about KenBench.</p>
+
+        <a href="mailto:asikoeverlyn@gmail.com" class="flex items-center gap-2.5 text-gray-600 no-underline text-sm hover:text-green-600 transition-colors mb-3">
+          <span>✉</span> asikoeverlyn@gmail.com (Technical Lead)
+        </a>
+        <a href="mailto:cn.siro@gmail.com" class="flex items-center gap-2.5 text-gray-600 no-underline text-sm hover:text-green-600 transition-colors">
+          <span>✉</span> cn.siro@gmail.com (Project Co-Lead)
+        </a>
+
+        <div class="mt-8">
+          <p class="text-[13px] text-gray-400 font-medium mb-3">Connect with us</p>
+          <div class="flex gap-2 flex-wrap">
+            <span class="bg-white border border-black/10 rounded-full px-3.5 py-1.5 text-[13px] text-gray-600">Masakhane community</span>
+            <span class="bg-white border border-black/10 rounded-full px-3.5 py-1.5 text-[13px] text-gray-600">WhatsApp group</span>
+            <span class="bg-white border border-black/10 rounded-full px-3.5 py-1.5 text-[13px] text-gray-600">HuggingFace</span>
+            <span class="bg-white border border-black/10 rounded-full px-3.5 py-1.5 text-[13px] text-gray-600">OpenReview</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white border border-black/10 rounded-xl p-8">
+        <h3 class="text-base font-semibold mb-5">Express interest</h3>
+        <form class="flex flex-col gap-4" id="contact-form" action="/api/contact.php" method="POST">
+          <div>
+            <label for="name" class="block text-[13px] font-medium text-gray-600 mb-1.5">Full name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required
+              class="w-full px-3.5 py-2.5 border border-black/18 rounded-lg text-sm bg-white text-gray-900 outline-none focus:border-green-400 transition-colors" />
+          </div>
+          <div>
+            <label for="email" class="block text-[13px] font-medium text-gray-600 mb-1.5">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required
+              class="w-full px-3.5 py-2.5 border border-black/18 rounded-lg text-sm bg-white text-gray-900 outline-none focus:border-green-400 transition-colors" />
+          </div>
+          <div>
+            <label for="interest" class="block text-[13px] font-medium text-gray-600 mb-1.5">I want to...</label>
+            <select id="interest" name="interest"
+              class="w-full px-3.5 py-2.5 border border-black/18 rounded-lg text-sm bg-white text-gray-900 outline-none focus:border-green-400 transition-colors">
+              <option>Contribute to KenBench</option>
+              <option>Explore a research partnership</option>
+              <option>Provide funding or compute</option>
+              <option>Join the community</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div>
+            <label for="message" class="block text-[13px] font-medium text-gray-600 mb-1.5">Tell us more</label>
+            <textarea id="message" name="message" rows="5" placeholder="Your background, what you can contribute, or any questions..."
+              class="w-full px-3.5 py-2.5 border border-black/18 rounded-lg text-sm bg-white text-gray-900 outline-none focus:border-green-400 transition-colors resize-y"></textarea>
+          </div>
+          <button type="submit" id="submit-btn" class="bg-green-600 text-white px-7 py-3.5 rounded-full text-[15px] font-medium hover:bg-green-800 transition-colors cursor-pointer border-none font-[family-name:var(--font-family-body)]">
+            Send message
+          </button>
+          <p id="form-status" class="text-sm hidden"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const status = document.getElementById('form-status')!;
+  const btn = document.getElementById('submit-btn')!;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    btn.textContent = 'Sending...';
+    btn.setAttribute('disabled', 'true');
+    status.classList.add('hidden');
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+      });
+      const data = await res.json();
+
+      if (res.ok) {
+        status.textContent = '✓ Message sent! We\'ll be in touch.';
+        status.className = 'text-sm text-green-600';
+        form.reset();
+      } else {
+        status.textContent = data.error || 'Something went wrong. Please try again.';
+        status.className = 'text-sm text-coral-400';
+      }
+    } catch {
+      status.textContent = 'Network error. Please email us directly.';
+      status.className = 'text-sm text-coral-400';
+    }
+
+    btn.textContent = 'Send message';
+    btn.removeAttribute('disabled');
+  });
+</script>

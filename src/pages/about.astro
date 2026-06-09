@@ -1,0 +1,90 @@
+---
+import Base from '../layouts/Base.astro';
+
+const pillars = [
+  { num: '01', title: 'Research', desc: 'Systematic benchmarking, model evaluation, and original research publications targeting Kenyan language NLP tasks.', icon: '🔬' },
+  { num: '02', title: 'Community', desc: 'Knowledge-sharing sessions, reading groups, mentorship programs, and collaborative projects open to all contributors.', icon: '🤝' },
+  { num: '03', title: 'Data & infrastructure', desc: 'Building, curating, and open-sourcing datasets and evaluation pipelines for Kenyan languages.', icon: '🗂' },
+  { num: '04', title: 'Language revival', desc: 'Collecting speech and text data for endangered Kenyan languages like Kipsigis, Nandi, Ogiek, and Dahalo.', icon: '🌱' },
+  { num: '05', title: 'Partnerships', desc: 'Collaborating with Masakhane, Strathmore, University of Nairobi, Maseno, Microsoft Research, KenCorpus, and Mozilla Common Voice.', icon: '🏛' },
+];
+
+const milestones = [
+  { year: '2025', event: 'KenyaNLP founded under Masakhane umbrella' },
+  { year: '2025', event: 'Grew to 23+ contributors across 6 institutions' },
+  { year: '2025', event: 'KenBench Phase 1 launched - 10 languages, 15+ datasets' },
+  { year: '2026', event: 'Synthesis workshop & AfricaNLP publication (target)' },
+];
+---
+<Base title="About - KenyaNLP" description="Learn about KenyaNLP's mission to advance language technology for all Kenyan languages.">
+  <section class="py-20 px-8 max-w-[1060px] mx-auto">
+    <p class="text-[11px] font-semibold tracking-widest uppercase text-green-600 mb-3">About KenyaNLP</p>
+
+    <!-- Vision statement -->
+    <div class="mb-12">
+      <h1 class="font-[family-name:var(--font-family-heading)] text-[clamp(1.8rem,4vw,2.4rem)] font-normal leading-tight mb-4">
+        Every Kenyan language deserves world-class AI tools.
+      </h1>
+      <p class="text-lg text-gray-600 font-light leading-relaxed max-w-[640px]">
+        We aim to enable inclusive, locally relevant, and globally impactful AI that represents the linguistic and cultural diversity of Kenya.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <!-- Story -->
+      <div>
+        <h2 class="text-lg font-semibold mb-4">Our story</h2>
+        <p class="text-gray-600 text-[15px] leading-relaxed font-light mb-4">
+          KenyaNLP is a pilot initiative under the <strong class="font-semibold">Masakhane</strong> umbrella, uniting Kenya's language efforts through open research, transparent evaluation, and inclusive cross-sector collaboration.
+        </p>
+        <p class="text-gray-600 text-[15px] leading-relaxed font-light mb-4">
+          Our mission is straightforward: conduct impactful research for Kenyan languages, advance the technologies that serve them, and ensure that every language - from widely spoken Swahili and Kikuyu to endangered languages like Dahalo and Ogiek - has a place in the AI future.
+        </p>
+        <p class="text-gray-600 text-[15px] leading-relaxed font-light mb-6">
+          Founded in 2025, we've rapidly grown into a 23-member collaboration spanning universities, industry labs, and the broader Masakhane community.
+        </p>
+
+        <!-- Segmented CTAs -->
+        <div class="flex flex-col gap-3">
+          <p class="text-[11px] font-semibold tracking-widest uppercase text-gray-400">Get involved</p>
+          <div class="flex flex-wrap gap-2">
+            <a href="/community" class="bg-green-600 text-white px-5 py-2.5 rounded-full text-[13px] font-medium hover:bg-green-800 transition-colors no-underline">I'm a researcher → Join</a>
+            <a href="/contact" class="border border-black/18 px-5 py-2.5 rounded-full text-[13px] hover:bg-gray-50 transition-colors no-underline text-gray-900">I represent an institution → Partner</a>
+            <a href="/contact" class="border border-black/18 px-5 py-2.5 rounded-full text-[13px] hover:bg-gray-50 transition-colors no-underline text-gray-900">I want to fund → Sponsor</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pillars -->
+      <div class="flex flex-col">
+        {pillars.map((p, i) => (
+          <div class:list={[
+            'bg-white border border-black/10 px-6 py-5 flex items-start gap-4',
+            i === 0 && 'rounded-t-xl',
+            i === pillars.length - 1 && 'rounded-b-xl',
+            i > 0 && '-mt-px'
+          ]}>
+            <span class="font-[family-name:var(--font-family-mono)] text-[11px] text-green-600 pt-0.5 shrink-0">{p.num}</span>
+            <div>
+              <h4 class="text-sm font-semibold mb-1">{p.icon} {p.title}</h4>
+              <p class="text-[13px] text-gray-600 leading-relaxed">{p.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="mt-16 pt-12 border-t border-black/10">
+      <p class="text-[11px] font-semibold tracking-widest uppercase text-green-600 mb-6">Journey so far</p>
+      <div class="flex flex-wrap gap-6">
+        {milestones.map(m => (
+          <div class="flex items-start gap-3 bg-white border border-black/10 rounded-xl px-5 py-4 flex-1 min-w-[220px]">
+            <span class="font-[family-name:var(--font-family-mono)] text-[12px] text-green-600 font-semibold shrink-0 pt-0.5">{m.year}</span>
+            <p class="text-[13px] text-gray-600 leading-relaxed">{m.event}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

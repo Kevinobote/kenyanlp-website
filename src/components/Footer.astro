@@ -1,0 +1,19 @@
+---
+const links = [
+  { href: '/about', label: 'About' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/team', label: 'Team' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+<footer class="border-t border-black/10 max-w-[1060px] mx-auto px-8 py-10 flex flex-wrap justify-between items-center gap-4">
+  <div>
+    <div class="font-semibold text-[15px] text-gray-900">KenyaNLP</div>
+    <p class="text-[13px] text-gray-400">A Masakhane-affiliated initiative for Kenyan language technology</p>
+  </div>
+  <nav class="flex gap-6" aria-label="Footer navigation">
+    {links.map(link => (
+      <a href={link.href} class="text-[13px] text-gray-400 no-underline hover:text-gray-900 transition-colors">{link.label}</a>
+    ))}
+  </nav>
+</footer>
