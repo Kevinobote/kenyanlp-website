@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
 
 const projects = [
   {
@@ -8,6 +9,7 @@ const projects = [
     title: 'KenBench',
     desc: 'The first comprehensive evaluation suite for Kenyan language NLP - benchmarking models and datasets across 10 languages with a public leaderboard.',
     progress: 45,
+    updated: 'June 2025',
     meta: ['Q1/Q2 2026', '23 contributors', '10 languages'],
     overview: 'KenBench provides plug-and-play evaluation via lm-evaluation-harness, a public leaderboard, and baselines for open- and closed-source models across 10 Kenyan languages. Target publication: AfricaNLP 2026 at EACL. Synthesis workshop planned for April 2026.',
     tags: ['Benchmarking', 'Evaluation', 'Leaderboard', 'lm-harness'],
@@ -25,6 +27,7 @@ const projects = [
     title: 'Language revival project',
     desc: 'Collect speech and text data for forgotten Kenyan languages - Ogiek, Kipsigis, Nandi, Kisii - then evaluate and train small models.',
     progress: 10,
+    updated: 'May 2025',
     meta: ['Q3 2026', '4+ languages'],
     overview: 'One language revival project per cycle: collect speech and text data, run evaluation, and train a small model for an endangered or under-resourced Kenyan language. Starting candidates include Ogiek, Kipsigis, Nandi, and Kisii.',
     tags: ['Data collection', 'ASR', 'Endangered languages', 'Speech'],
@@ -36,6 +39,7 @@ const projects = [
     title: 'Small LM / ASR for Kenyan languages',
     desc: 'Training and evaluating small language models and ASR systems purpose-built for Kenyan languages and low-resource constraints.',
     progress: 5,
+    updated: 'May 2025',
     meta: ['Q3–Q4 2026', 'Research scoping'],
     overview: 'Following KenBench, KenyaNLP will run a focused project training small language and automatic speech recognition models optimised for Kenyan language characteristics and data constraints.',
     tags: ['ASR', 'Language models', 'Low-resource', 'Fine-tuning'],
@@ -50,6 +54,7 @@ const statusStyles: Record<string, string> = {
 };
 ---
 <Base title="Projects - KenyaNLP" description="Explore KenyaNLP's active research projects in Kenyan language NLP.">
+  <Breadcrumb current="Projects" />
   <section class="py-20 px-8 max-w-[1060px] mx-auto">
     <p class="text-[11px] font-semibold tracking-widest uppercase text-green-600 mb-3">Research projects</p>
     <h1 class="font-[family-name:var(--font-family-heading)] text-[clamp(1.8rem,4vw,2.6rem)] font-normal leading-tight tracking-tight mb-4">What we're working on</h1>
@@ -70,8 +75,12 @@ const statusStyles: Record<string, string> = {
           <span class={`inline-block text-[11px] font-medium px-2.5 py-0.5 rounded-full mb-3 border ${statusStyles[proj.status]}`}>{proj.statusLabel}</span>
           <h3 class="text-base font-semibold mb-1.5 text-gray-900">{proj.title}</h3>
           <p class="text-[13px] text-gray-600 leading-relaxed mb-4">{proj.desc}</p>
-          <div class="h-0.5 bg-gray-50 rounded-sm mb-3 overflow-hidden">
+          <div class="h-0.5 bg-gray-50 rounded-sm mb-1 overflow-hidden">
             <div class="h-full bg-green-600 rounded-sm" style={`width:${proj.progress}%`}></div>
+          </div>
+          <div class="flex justify-between items-center mb-3">
+            <span class="text-[11px] text-gray-400">{proj.progress}% complete</span>
+            <span class="text-[11px] text-gray-400">Updated {proj.updated}</span>
           </div>
           <div class="flex gap-4 text-xs text-gray-400 flex-wrap">
             {proj.meta.map(m => <span>{m}</span>)}

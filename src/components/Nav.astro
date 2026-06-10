@@ -5,18 +5,26 @@ const navLinks = [
   { href: '/team', label: 'Team' },
   { href: '/community', label: 'Community' },
 ];
+const currentPath = Astro.url.pathname;
 ---
-<nav class="sticky top-0 z-100 bg-[#FAFAF8]/92 backdrop-blur-md border-b border-black/10 px-8 h-16 flex items-center justify-between" aria-label="Main navigation">
+<nav class="sticky top-0 z-100 bg-[#FAFAF8]/92 backdrop-blur-md border-b border-black/10 px-8 h-20 flex items-center justify-between" aria-label="Main navigation">
   <a href="/" class="flex items-center gap-2.5 no-underline text-gray-900 font-semibold text-[17px] tracking-tight">
-    <div class="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white text-[13px] font-bold tracking-tighter">KN</div>
-    KenyaNLP
+    <img src="/logo-light.png" alt="KenyaNLP" class="h-14" />
   </a>
 
   <ul class="hidden md:flex items-center gap-8 list-none" id="nav-menu">
     {navLinks.map(link => (
-      <li><a href={link.href} class="text-gray-600 text-sm hover:text-gray-900 transition-colors no-underline">{link.label}</a></li>
+      <li>
+        <a href={link.href} class:list={[
+          'text-sm no-underline transition-colors',
+          currentPath.startsWith(link.href) ? 'text-green-600 font-semibold' : 'text-gray-600 hover:text-gray-900'
+        ]}>{link.label}</a>
+      </li>
     ))}
-    <li><a href="/contact" class="bg-green-600 text-white! px-5 py-2 rounded-full text-[13px] font-medium hover:bg-green-800 transition-colors no-underline">Get Involved</a></li>
+    <li><a href="/contact" class:list={[
+      'px-5 py-2 rounded-full text-[13px] font-medium transition-colors no-underline',
+      currentPath.startsWith('/contact') ? 'bg-green-800 text-white!' : 'bg-green-600 text-white! hover:bg-green-800'
+    ]}>Get Involved</a></li>
   </ul>
 
   <button class="md:hidden text-xl bg-transparent border-none cursor-pointer text-gray-900" id="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
@@ -25,14 +33,26 @@ const navLinks = [
 </nav>
 
 <!-- Mobile menu -->
-<div class="hidden md:hidden fixed inset-0 top-16 z-50 bg-[#FAFAF8]/97 backdrop-blur-md p-8" id="mobile-menu">
-  <ul class="flex flex-col gap-6 list-none">
+<div class="hidden md:hidden fixed inset-0 top-20 z-50 bg-[#FAFAF8]/97 backdrop-blur-md p-8 transition-all duration-200 ease-out" id="mobile-menu">
+  <ul class="flex flex-col gap-6 list-none animate-[slideDown_0.2s_ease-out]">
     {navLinks.map(link => (
-      <li><a href={link.href} class="text-gray-600 text-lg hover:text-gray-900 transition-colors no-underline">{link.label}</a></li>
+      <li>
+        <a href={link.href} class:list={[
+          'text-lg no-underline transition-colors',
+          currentPath.startsWith(link.href) ? 'text-green-600 font-semibold' : 'text-gray-600 hover:text-gray-900'
+        ]}>{link.label}</a>
+      </li>
     ))}
     <li><a href="/contact" class="bg-green-600 text-white! inline-block px-6 py-3 rounded-full text-sm font-medium hover:bg-green-800 transition-colors no-underline">Get Involved</a></li>
   </ul>
 </div>
+
+<style>
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
 
 <script>
   const toggle = document.getElementById('mobile-toggle');

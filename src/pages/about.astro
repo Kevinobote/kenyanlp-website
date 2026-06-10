@@ -1,13 +1,17 @@
 ---
 import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import { Microscope, Users, Database, Sprout, Handshake } from 'lucide-astro';
 
 const pillars = [
-  { num: '01', title: 'Research', desc: 'Systematic benchmarking, model evaluation, and original research publications targeting Kenyan language NLP tasks.', icon: '🔬' },
-  { num: '02', title: 'Community', desc: 'Knowledge-sharing sessions, reading groups, mentorship programs, and collaborative projects open to all contributors.', icon: '🤝' },
-  { num: '03', title: 'Data & infrastructure', desc: 'Building, curating, and open-sourcing datasets and evaluation pipelines for Kenyan languages.', icon: '🗂' },
-  { num: '04', title: 'Language revival', desc: 'Collecting speech and text data for endangered Kenyan languages like Kipsigis, Nandi, Ogiek, and Dahalo.', icon: '🌱' },
-  { num: '05', title: 'Partnerships', desc: 'Collaborating with Masakhane, Strathmore, University of Nairobi, Maseno, Microsoft Research, KenCorpus, and Mozilla Common Voice.', icon: '🏛' },
+  { num: '01', title: 'Research', desc: 'Systematic benchmarking, model evaluation, and original research publications targeting Kenyan language NLP tasks.' },
+  { num: '02', title: 'Community', desc: 'Knowledge-sharing sessions, reading groups, mentorship programs, and collaborative projects open to all contributors.' },
+  { num: '03', title: 'Data & infrastructure', desc: 'Building, curating, and open-sourcing datasets and evaluation pipelines for Kenyan languages.' },
+  { num: '04', title: 'Language revival', desc: 'Collecting speech and text data for endangered Kenyan languages like Kipsigis, Nandi, Ogiek, and Dahalo.' },
+  { num: '05', title: 'Partnerships', desc: 'Collaborating with Masakhane, Strathmore, University of Nairobi, Maseno, Microsoft Research, KenCorpus, and Mozilla Common Voice.' },
 ];
+
+const pillarIcons = [Microscope, Users, Database, Sprout, Handshake];
 
 const milestones = [
   { year: '2025', event: 'KenyaNLP founded under Masakhane umbrella' },
@@ -17,6 +21,7 @@ const milestones = [
 ];
 ---
 <Base title="About - KenyaNLP" description="Learn about KenyaNLP's mission to advance language technology for all Kenyan languages.">
+  <Breadcrumb current="About" />
   <section class="py-20 px-8 max-w-[1060px] mx-auto">
     <p class="text-[11px] font-semibold tracking-widest uppercase text-green-600 mb-3">About KenyaNLP</p>
 
@@ -66,7 +71,7 @@ const milestones = [
           ]}>
             <span class="font-[family-name:var(--font-family-mono)] text-[11px] text-green-600 pt-0.5 shrink-0">{p.num}</span>
             <div>
-              <h4 class="text-sm font-semibold mb-1">{p.icon} {p.title}</h4>
+              <h4 class="text-sm font-semibold mb-1">{p.title}</h4>
               <p class="text-[13px] text-gray-600 leading-relaxed">{p.desc}</p>
             </div>
           </div>

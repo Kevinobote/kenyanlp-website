@@ -1,19 +1,24 @@
 ---
 import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
 ---
 <Base title="Get Involved - KenyaNLP" description="Contact KenyaNLP to join the community, explore partnerships, or contribute to our research projects.">
+  <Breadcrumb current="Get Involved" />
   <section class="py-20 px-8 max-w-[1060px] mx-auto">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
       <div>
         <p class="text-[11px] font-semibold tracking-widest uppercase text-green-600 mb-3">Get in touch</p>
-        <h1 class="font-[family-name:var(--font-family-heading)] text-[2rem] font-normal mb-4">Work with KenyaNLP</h1>
+        <h1 class="font-[family-name:var(--font-family-heading)] text-[2rem] font-normal mb-4">Get involved</h1>
         <p class="text-gray-600 font-light leading-relaxed mb-6">Whether you're a researcher, institution, funder, or community member - we'd love to hear from you. Reach out to join the team, explore a partnership, or learn more about KenBench.</p>
 
-        <a href="mailto:asikoeverlyn@gmail.com" class="flex items-center gap-2.5 text-gray-600 no-underline text-sm hover:text-green-600 transition-colors mb-3">
-          <span>✉</span> asikoeverlyn@gmail.com (Technical Lead)
+        <a href="mailto:asikoeverlyn@kenyanlp.org" class="flex items-center gap-2.5 text-gray-600 no-underline text-sm hover:text-green-600 transition-colors mb-3">
+          <span>✉</span> asikoeverlyn@kenyanlp.org (Technical Lead)
         </a>
-        <a href="mailto:cn.siro@gmail.com" class="flex items-center gap-2.5 text-gray-600 no-underline text-sm hover:text-green-600 transition-colors">
-          <span>✉</span> cn.siro@gmail.com (Project Co-Lead)
+        <a href="mailto:cn.siro@kenyanlp.org" class="flex items-center gap-2.5 text-gray-600 no-underline text-sm hover:text-green-600 transition-colors mb-3">
+          <span>✉</span> cn.siro@kenyanlp.org (Project Co-Lead)
+        </a>
+        <a href="mailto:info@kenyanlp.org" class="flex items-center gap-2.5 text-gray-600 no-underline text-sm hover:text-green-600 transition-colors">
+          <span>✉</span> info@kenyanlp.org (General inquiries)
         </a>
 
         <div class="mt-8">
@@ -59,6 +64,7 @@ import Base from '../layouts/Base.astro';
           <button type="submit" id="submit-btn" class="bg-green-600 text-white px-7 py-3.5 rounded-full text-[15px] font-medium hover:bg-green-800 transition-colors cursor-pointer border-none font-[family-name:var(--font-family-body)]">
             Send message
           </button>
+          <p class="text-[11px] text-gray-400">We typically respond within 48 hours. Your information is only used to respond - no spam.</p>
           <p id="form-status" class="text-sm hidden"></p>
         </form>
       </div>

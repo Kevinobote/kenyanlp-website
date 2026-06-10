@@ -1,0 +1,132 @@
+========================================================================
+KenyaNLP Website - TODO LIST (Remaining Fixes & Improvements)
+========================================================================
+Generated after visual preview review.
+
+========================================================================
+HIGH PRIORITY - Fix Now
+========================================================================
+
+[ ] 1. NAV: Logo (h-16) is same height as nav bar (h-16) - looks cramped
+       → Either increase nav height to h-20 or reduce logo to h-12/h-14
+
+[ ] 2. NAV: No active state on current page link
+       → Add underline or bold to the active page link
+       → Pass current path from Astro.url.pathname to Nav component
+
+[ ] 3. ABOUT PAGE: Pillar icons are still emojis (🔬🤝🗂🌱🏛)
+       → Replace with Lucide icons like other pages
+
+[ ] 4. CONTACT PAGE: "Connect with us" pills are not clickable
+       → Need actual URLs for WhatsApp, HuggingFace, Masakhane, OpenReview
+       → Or remove them until links are available
+
+[ ] 5. CONTACT PAGE: Title still says "Work with KenyaNLP" (too formal)
+       → Change to "Get involved" or "Let's work together"
+
+[ ] 6. CONTACT PAGE: No privacy note on the form
+       → Add: "We'll only use your email to respond. No spam."
+
+[ ] 7. CONTACT PAGE: No response time expectation
+       → Add: "We typically respond within 48 hours"
+
+[ ] 8. TEAM PAGE: Naome Etori has empty title field showing "·" separator
+       → Fix: only show separator when title exists
+
+[ ] 9. 404 PAGE: Does not exist
+       → Create src/pages/404.astro with links back to home
+
+========================================================================
+MEDIUM PRIORITY - Improve Soon
+========================================================================
+
+[ ] 10. HOME PAGE: "How it works" numbers (1, 2, 3) could use Lucide icons
+        → UserPlus, FolderSearch, Award or similar
+
+[ ] 11. HOME PAGE: Social proof section uses text only
+        → Consider adding actual institution logos when available
+
+[ ] 12. PROJECTS PAGE: No "last updated" timestamp on cards
+        → Add a date field to show project is alive
+
+[ ] 13. PROJECTS PAGE: Progress bars lack text labels
+        → Add "45% complete" next to bar
+
+[ ] 14. PROJECTS PAGE: No GitHub/HuggingFace links per project
+        → Add repo links when available
+
+[ ] 15. COMMUNITY PAGE: Banner CTA goes to contact form (friction)
+        → Add direct WhatsApp group join link when available
+
+[ ] 16. COMMUNITY PAGE: No onboarding steps section
+        → Add: (1) Fill form (2) Join WhatsApp (3) Attend intro call (4) Pick task
+
+[ ] 17. FOOTER: No social media links
+        → Add GitHub, HuggingFace, Twitter/X links when available
+
+[ ] 18. FOOTER: No newsletter signup
+        → Add email input for updates (connect to Mailchimp free tier or similar)
+
+[ ] 19. ALL PAGES: No breadcrumb navigation
+        → Add subtle "Home > Projects" breadcrumb for SEO + UX
+
+[ ] 20. ALL PAGES: No page load animation/transition
+        → Add subtle CSS fade-in on body load
+
+========================================================================
+LOW PRIORITY - Nice to Have
+========================================================================
+
+[ ] 21. HOME PAGE: Add Naome's testimonial to the slider
+        → Need a quote from her
+
+[ ] 22. TEAM PAGE: Add "Advisors / Mentors" section
+        → Need data on who advises the project
+
+[ ] 23. TEAM PAGE: Add "Join the team" with open roles section
+        → List what roles are currently needed
+
+[ ] 24. COMMUNITY PAGE: Add FAQ section
+        → "Do I need ML experience?", "How much time?", "Remote OK?"
+
+[ ] 25. COMMUNITY PAGE: Add contributor spotlight/story
+        → Short paragraph about a member's journey
+
+[ ] 26. NEW PAGE: Blog / Updates
+        → For project updates, event recaps, announcements
+
+[ ] 27. NEW PAGE: Resources
+        → Links to datasets, papers, tools, reading lists
+
+[ ] 28. NEW PAGE: Events
+        → Upcoming workshops, reading groups, conferences
+
+[ ] 29. PERFORMANCE: Optimize team photos
+        → Compress to WebP format, add width/height attributes
+        → Current photos are large (1000px+), only displayed at 80px
+
+[ ] 30. SEO: Add og-image.png
+        → Design a social sharing preview image for the site
+
+[ ] 31. MOBILE: Test hamburger menu animation
+        → Add slide/fade transition instead of instant show/hide
+
+[ ] 32. ACCESSIBILITY: Add focus-visible ring styles
+        → Ensure keyboard navigation is visible on all interactive elements
+
+========================================================================
+CONTENT NEEDED FROM TEAM
+========================================================================
+
+[ ] Domain name - is it kenyanlp.org? Need for config + robots.txt
+[ ] WhatsApp group invite link
+[ ] HuggingFace organization URL
+[ ] GitHub organization URL
+[ ] Twitter/X account (if any)
+[ ] Professional email (hello@kenyanlp.org via cPanel)
+[ ] Naome Etori - quote for testimonial slider
+[ ] Open Graph image design (1200x630px)
+
+========================================================================
+END OF TODO
+========================================================================

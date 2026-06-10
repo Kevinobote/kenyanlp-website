@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://kenyanlp.org', // Replace with your actual domain
+  site: 'https://kenyanlp.org',
   output: 'static',
   vite: {
     plugins: [tailwindcss()]

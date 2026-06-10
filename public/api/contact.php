@@ -34,7 +34,7 @@ if (!$name || !$email) {
 }
 
 // Email config — update these
-$to = 'asikoeverlyn@gmail.com';
+$to = 'info@kenyanlp.org';
 $subject = "KenyaNLP Contact: $interest";
 $body = "Name: $name\nEmail: $email\nInterest: $interest\n\nMessage:\n$message";
 $headers = "From: noreply@kenyanlp.org\r\nReply-To: $email\r\n";
