@@ -11,12 +11,6 @@ import Breadcrumb from '../components/Breadcrumb.astro';
         <h1 class="font-[family-name:var(--font-family-heading)] text-[2rem] font-normal mb-4">Get involved</h1>
         <p class="text-gray-600 font-light leading-relaxed mb-6">Whether you're a researcher, institution, funder, or community member - we'd love to hear from you. Reach out to join the team, explore a partnership, or learn more about KenBench.</p>
 
-        <a href="mailto:asikoeverlyn@kenyanlp.org" class="flex items-center gap-2.5 text-gray-600 no-underline text-sm hover:text-green-600 transition-colors mb-3">
-          <span>✉</span> asikoeverlyn@kenyanlp.org (Technical Lead)
-        </a>
-        <a href="mailto:cn.siro@kenyanlp.org" class="flex items-center gap-2.5 text-gray-600 no-underline text-sm hover:text-green-600 transition-colors mb-3">
-          <span>✉</span> cn.siro@kenyanlp.org (Project Co-Lead)
-        </a>
         <a href="mailto:info@kenyanlp.org" class="flex items-center gap-2.5 text-gray-600 no-underline text-sm hover:text-green-600 transition-colors">
           <span>✉</span> info@kenyanlp.org (General inquiries)
         </a>
@@ -61,8 +55,9 @@ import Breadcrumb from '../components/Breadcrumb.astro';
             <textarea id="message" name="message" rows="5" placeholder="Your background, what you can contribute, or any questions..."
               class="w-full px-3.5 py-2.5 border border-black/18 rounded-lg text-sm bg-white text-gray-900 outline-none focus:border-green-400 transition-colors resize-y"></textarea>
           </div>
-          <button type="submit" id="submit-btn" class="bg-green-600 text-white px-7 py-3.5 rounded-full text-[15px] font-medium hover:bg-green-800 transition-colors cursor-pointer border-none font-[family-name:var(--font-family-body)]">
-            Send message
+          <button type="submit" id="submit-btn" class="bg-green-600 text-white px-7 py-3.5 rounded-full text-[15px] font-medium hover:bg-green-800 transition-colors cursor-pointer border-none font-[family-name:var(--font-family-body)] flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed">
+            <span id="btn-text">Send message</span>
+            <svg id="btn-spinner" class="hidden animate-spin w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
           </button>
           <p class="text-[11px] text-gray-400">We typically respond within 48 hours. Your information is only used to respond - no spam.</p>
           <p id="form-status" class="text-sm hidden"></p>
@@ -76,10 +71,13 @@ import Breadcrumb from '../components/Breadcrumb.astro';
   const form = document.getElementById('contact-form') as HTMLFormElement;
   const status = document.getElementById('form-status')!;
   const btn = document.getElementById('submit-btn')!;
+  const btnText = document.getElementById('btn-text')!;
+  const spinner = document.getElementById('btn-spinner')!;
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    btn.textContent = 'Sending...';
+    btnText.textContent = 'Sending...';
+    spinner.classList.remove('hidden');
     btn.setAttribute('disabled', 'true');
     status.classList.add('hidden');
 
@@ -103,7 +101,8 @@ import Breadcrumb from '../components/Breadcrumb.astro';
       status.className = 'text-sm text-coral-400';
     }
 
-    btn.textContent = 'Send message';
+    btnText.textContent = 'Send message';
+    spinner.classList.add('hidden');
     btn.removeAttribute('disabled');
   });
 </script>

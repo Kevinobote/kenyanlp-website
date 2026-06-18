@@ -3,20 +3,20 @@ import Base from '../layouts/Base.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 
 const leadership = [
-  { name: 'Dr. Everlyn Asiko', role: 'Project Co-Lead & Evaluation Pipeline Lead', affil: 'Lelapa AI', title: 'Research Scientist & PhD Candidate, UCT', photo: '/team/everlyn-asiko.jpg', linkedin: 'https://www.linkedin.com/in/everlyn-asiko/' },
-  { name: 'Dr. Clemencia Siro', role: 'Project Co-Lead & Data Sourcing Lead', affil: 'Centrum Wiskunde & Informatica', title: 'Postdoctoral Researcher', photo: '/team/clemencia-siro.jpg', linkedin: 'https://www.linkedin.com/in/clemencia-siro/' },
+  { name: 'Dr. Everlyn Asiko', role: 'Project Co-Lead & Evaluation Pipeline Lead', affil: 'Lelapa AI', title: 'Research Scientist & PhD Candidate, UCT', photo: '/team/everlyn-asiko.webp', linkedin: 'https://www.linkedin.com/in/everlyn-asiko/' },
+  { name: 'Dr. Clemencia Siro', role: 'Project Co-Lead & Data Sourcing Lead', affil: 'Centrum Wiskunde & Informatica', title: 'Postdoctoral Researcher', photo: '/team/clemencia-siro.webp', linkedin: 'https://www.linkedin.com/in/clemencia-siro/' },
 ];
 
 const leads = [
-  { name: 'Cynthia Amol', role: 'Dataset Cleaning Lead', affil: 'Maseno University', title: 'PhD Student & NLP Researcher', photo: '/team/cynthia-amol.jpg', linkedin: 'http://www.linkedin.com/in/cynthia-amol' },
-  { name: 'Naome Etori', role: 'Model Research & Human Eval Lead', affil: 'University of Minnesota-Twin Cities', title: '', photo: '/team/naome-etori.jpeg', linkedin: 'https://www.linkedin.com/in/naome22/' },
-  { name: 'Kevin Obote', role: 'Dataset Evaluation Lead', affil: 'Guild Code', title: 'Lead AI Systems Engineer', photo: '/team/kevin-obote.jpg', linkedin: 'https://www.linkedin.com/in/kevinobote' },
-  { name: "Millicent Ochieng'", role: 'Writing & Publications Lead', affil: 'Microsoft Research Africa', title: 'Research Scientist', photo: '/team/millicent-ochieng.jpg', linkedin: 'https://www.linkedin.com/in/millicent-ochieng-b8061a14b/' },
-  { name: 'Amos Mwendwa', role: 'Website & Outreach Lead', affil: 'Meraki Digital Solutions', title: 'Founder', photo: '/team/amos-mwendwa.jpg', linkedin: 'https://www.linkedin.com/in/amos-mwendwa-276a92151/' },
+  { name: 'Cynthia Amol', role: 'Dataset Cleaning Lead', affil: 'Maseno University', title: 'PhD Student & NLP Researcher', photo: '/team/cynthia-amol.webp', linkedin: 'http://www.linkedin.com/in/cynthia-amol' },
+  { name: 'Naome Etori', role: 'Model Research & Human Eval Lead', affil: 'University of Minnesota-Twin Cities', title: '', photo: '/team/naome-etori.webp', linkedin: 'https://www.linkedin.com/in/naome22/' },
+  { name: 'Kevin Obote', role: 'Dataset Evaluation Lead', affil: 'Guild Code', title: 'Lead AI Systems Engineer', photo: '/team/kevin-obote.webp', linkedin: 'https://www.linkedin.com/in/kevinobote' },
+  { name: "Millicent Ochieng'", role: 'Writing & Publications Lead', affil: 'Microsoft Research Africa', title: 'Research Scientist', photo: '/team/millicent-ochieng.webp', linkedin: 'https://www.linkedin.com/in/millicent-ochieng-b8061a14b/' },
+  { name: 'Amos Mwendwa', role: 'Website & Outreach Lead', affil: 'Meraki Digital Solutions', title: 'Founder', photo: '/team/amos-mwendwa.webp', linkedin: 'https://www.linkedin.com/in/amos-mwendwa-276a92151/' },
 ];
 
 const institutions = [
-  { title: 'Universities', list: 'University of Nairobi · Strathmore University · Dedan Kimathi · Maseno University' },
+  { title: 'Universities', list: 'University of Nairobi · Dedan Kimathi · Maseno University' },
   { title: 'Industry', list: 'Microsoft Research · Guild Code · Google (compute credits) · Meraki Digital Solutions' },
   { title: 'Research networks', list: 'Masakhane · KenCorpus · Mozilla Common Voice · Zindi · Lacuna Fund' },
 ];
@@ -33,7 +33,7 @@ const institutions = [
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
       {leadership.map(m => (
         <div class="bg-white border border-black/10 rounded-xl p-6 text-center">
-          <img src={m.photo} alt={m.name} class="w-20 h-20 rounded-full object-cover mx-auto mb-4" loading="lazy" />
+          <img src={m.photo} alt={m.name} class="w-20 h-20 rounded-full object-cover mx-auto mb-4" width="80" height="80" loading="lazy" />
           <h4 class="text-sm font-semibold mb-1">{m.name}</h4>
           <p class="text-xs text-gray-600 mb-0.5">{m.role}</p>
           <p class="text-[11px] text-gray-400 mb-0.5">{m.title ? `${m.title} · ${m.affil}` : m.affil}</p>
@@ -48,7 +48,7 @@ const institutions = [
       {leads.map(m => (
         <div class="bg-white border border-black/10 rounded-xl p-6 text-center">
           {m.photo ? (
-            <img src={m.photo} alt={m.name} class="w-14 h-14 rounded-full object-cover mx-auto mb-4" loading="lazy" />
+            <img src={m.photo} alt={m.name} class="w-14 h-14 rounded-full object-cover mx-auto mb-4" width="56" height="56" loading="lazy" />
           ) : (
             <div class={`w-14 h-14 rounded-full flex items-center justify-center font-semibold text-[15px] mx-auto mb-4 ${m.bg}`}>{m.initials}</div>
           )}
