@@ -1,0 +1,2 @@
+# Set your Resend API key on the server
+# Create a .env file in this directory with: RESEND_API_KEY=your_key_here
