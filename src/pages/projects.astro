@@ -19,6 +19,7 @@ const projects = [
       { title: 'Phase 2: Expansion', tag: 'Q3 2026', tagClass: 'bg-gray-50 text-gray-600', active: false, desc: 'Closed-source model evals (GPT, Claude, Gemini), 8+ languages, 15+ datasets, first major paper.' },
       { title: 'Phase 3: Sustainability', tag: 'Q4 2026', tagClass: 'bg-gray-50 text-gray-600', active: false, desc: 'Masakhane chapter status, governance transition, shared task launch.' },
     ],
+    results: { href: '/kenbench/', label: 'See Phase 1 results →' },
     contribute: 'We need help with dataset integration, model evaluation, human annotation, and paper writing. All skill levels welcome - Kenyan language speakers especially valued.',
   },
   {
@@ -124,7 +125,10 @@ const statusStyles: Record<string, string> = {
                 )}
                 <p class="text-[11px] font-semibold tracking-widest uppercase text-gray-400 mb-2 mt-5">How to contribute</p>
                 <p class="text-[13px] text-gray-600 leading-relaxed">{proj.contribute}</p>
-                <a href="/contact" class="inline-block mt-4 bg-green-600 text-white px-5 py-2.5 rounded-full text-[13px] font-medium hover:bg-green-800 transition-colors no-underline">Get involved →</a>
+                <div class="flex flex-wrap gap-2 mt-4">
+                  {proj.results && <a href={proj.results.href} class="inline-block bg-white border border-green-600 text-green-800 px-5 py-2.5 rounded-full text-[13px] font-medium hover:bg-green-50 transition-colors no-underline">{proj.results.label}</a>}
+                  <a href="/contact" class="inline-block bg-green-600 text-white px-5 py-2.5 rounded-full text-[13px] font-medium hover:bg-green-800 transition-colors no-underline">Get involved →</a>
+                </div>
               </div>
             </div>
           </div>
